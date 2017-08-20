@@ -1,6 +1,9 @@
-import {} from 'jest';
+import {} from "jest";
 import * as supertest from "supertest";
-const request = supertest("http://localhost:8000");
+
+import app from "../src/server";
+
+const request = supertest(app);
 
 describe("GET /random-url", () => {
   it("should return 404", (done) => {

@@ -24,7 +24,6 @@ const MongoStore = mongo(session);
  */
 dotenv.config({ path: ".env.example" });
 
-
 /**
  * Controllers (route handlers).
  */
@@ -53,8 +52,6 @@ mongoose.connection.on("error", () => {
   console.log("MongoDB connection error. Please make sure MongoDB is running.");
   process.exit();
 });
-
-
 
 /**
  * Express configuration.
@@ -135,7 +132,6 @@ app.get("/auth/facebook", passport.authenticate("facebook", { scope: ["email", "
 app.get("/auth/facebook/callback", passport.authenticate("facebook", { failureRedirect: "/login" }), (req, res) => {
   res.redirect(req.session.returnTo || "/");
 });
-
 
 /**
  * Error Handler. Provides full stack - remove for production
